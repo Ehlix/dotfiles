@@ -1,0 +1,174 @@
+* {
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: true;
+
+    font: "FiraCode Nerd Font 12";
+    /* Colors */
+    bg0-hard:     #171922;
+    bg0:          #1b1e28;
+    fg0:          #1b1e28;
+    fg1:          #e4f0fb;
+    hover:        #5de4c7;
+    red-dark:     #d0679d;
+    red-light:    #fcc5e9;
+    yellow-dark:  #ff0000;
+    yellow-light: #fffac2;
+    gray:         #606470;
+
+    /* Theme colors */
+    background:                  @bg0-hard;
+    background-color:            @background;
+    foreground:                  @fg1;
+    border-color:                @gray;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @border-color;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @bg0;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @hover;
+    selected-normal-foreground:  @fg0;
+
+    active-background:           @yellow-dark;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @yellow-light;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @red-dark;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @red-light;
+    selected-urgent-foreground:  @urgent-foreground;
+}
+
+window {
+    background-color: @background;
+    border:           2px;
+    padding:          0;
+    border-radius: 0;
+}
+
+mainbox {
+    border:  0;
+    padding: 0;
+}
+
+message {
+    border:       2px 0 0;
+    border-color: @separatorcolor;
+    padding:      1px;
+}
+
+textbox {
+    highlight:  @highlight;
+    text-color: @foreground;
+}
+
+listview {
+    border:       2px solid 0 0;
+    padding:      0px 0 0;
+    border-color: @separatorcolor;
+    spacing:      0px;
+    scrollbar:    @scrollbar;
+}
+
+element {
+    border:  0;
+    padding: 4px 10px;
+}
+
+element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+
+scrollbar {
+    width:        0;
+    border:       0;
+    handle-color: @scrollbar-handle;
+    handle-width: 0;
+    padding:      0;
+}
+
+mode-switcher {
+    border:       2px 0 0;
+    border-color: @separatorcolor;
+}
+
+inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    6px 2px 2px 10px;
+    children:   [ textbox-prompt-sep, entry, case-indicator ];
+}
+
+case-indicator,
+entry,
+prompt,
+button {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+textbox-prompt-sep {
+    expand:     false;
+    str:        "Search:";
+    text-color: @normal-foreground;
+    margin:     0 0.3em 0 0;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+

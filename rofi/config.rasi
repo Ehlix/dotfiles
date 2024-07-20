@@ -1,0 +1,12 @@
+
+configuration {
+  modi: "window,drun,ssh,combi";
+  combi-modi: "window,drun,ssh";
+  show-icons: true;
+  display-drun: "";
+  display-run: "";
+  display-ssh: "";
+}
+
+@theme "./themes/poimandres.rasi"
+

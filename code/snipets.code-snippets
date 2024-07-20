@@ -1,0 +1,190 @@
+{
+  // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  "import": {
+    "scope": "javascript,typescript,typescriptreact,vue",
+    "prefix": "im",
+    "body": ["import { $1 } from '$2'"]
+  },
+  // !VUE
+  "Vue Base": {
+    "scope": "vue",
+    "prefix": "vbase",
+    "body": [
+      "<script setup lang='ts'></script>",
+      "",
+      "<template>",
+      "\t<${1:div}>",
+      "",
+      "\t</${1:div}>",
+      "</template>",
+      "",
+      "<style scoped></style>"
+    ],
+    "description": "Vue base structure"
+  },
+  "Vue Ref": {
+    "scope": "vue",
+    "prefix": "vref",
+    "body": ["const ${1:name} = ref(${2:initialValue})"],
+    "description": "Vue Ref"
+  },
+  "Vue Ref typed": {
+    "scope": "vue",
+    "prefix": "vrefts",
+    "body": ["const ${1:name} = ref<${2:type}>(${3:initialValue})"],
+    "description": "Vue Ref with generic type argument"
+  },
+  "Vue Computed": {
+    "scope": "vue",
+    "prefix": "vcomp",
+    "body": ["const ${1:name} = computed(() => {", "\treturn ${2}", "})"],
+    "description": "Vue computed"
+  },
+  "Vue Watch": {
+    "scope": "vue",
+    "prefix": "vw",
+    "body": ["watch([${1}], () => {", "\t${2}", "})"],
+    "description": "Vue base structure"
+  },
+  "Vue Watch Effect": {
+    "scope": "vue",
+    "prefix": "vwef",
+    "body": ["watchEffect(() => {", "\t${1}", "})"],
+    "description": "Vue base structure"
+  },
+  "Vue Lifecycle Hooks - onMounted": {
+    "scope": "vue",
+    "prefix": "vonmounted",
+    "body": ["onMounted(() => {", "\t${1}", "})"],
+    "description": "Vue onMounted Lifecycle hook"
+  },
+  "Vue Lifecycle Hooks - onBeforeMount": {
+    "scope": "vue",
+    "prefix": "vonbeforemount",
+    "body": ["onBeforeMount(() => {", "\t${1}", "})"],
+    "description": "Vue onBeforeMount Lifecycle hook"
+  },
+  "Vue Lifecycle Hooks - onBeforeUpdate": {
+    "scope": "vue",
+    "prefix": "vonbeforeupdate",
+    "body": ["onBeforeUpdate(() => {", "\t${1}", "})"],
+    "description": "Vue onBeforeUpdate Lifecycle hook"
+  },
+  "Vue Lifecycle Hooks - onUpdated": {
+    "scope": "vue",
+    "prefix": "vonupdated",
+    "body": ["onUpdated(() => {", "\t${1}", "})"],
+    "description": "Vue onUpdated Lifecycle hook"
+  },
+  "Vue Lifecycle Hooks - onErrorCaptured": {
+    "scope": "vue",
+    "prefix": "vonerrorcaptured",
+    "body": ["onErrorCaptured(() => {", "\t${1}", "})"],
+    "description": "Vue onErrorCaptured Lifecycle hook"
+  },
+  "Vue Lifecycle Hooks - onUnmounted": {
+    "scope": "vue",
+    "prefix": "vonunmounted",
+    "body": ["onUnmounted(() => {", "\t${1}", "})"],
+    "description": "Vue onUnmounted Lifecycle hook"
+  },
+  "Vue Lifecycle Hooks - onBeforeUnmount": {
+    "scope": "vue",
+    "prefix": "vonbeforeunmount",
+    "body": ["onBeforeUnmount(() => {", "\t${1}", "})"],
+    "description": "Vue onBeforeUnmount Lifecycle hook"
+  },
+  "Vue Define Props": {
+    "scope": "vue",
+    "prefix": "vdefineprops",
+    "body": ["defineProps<{", "\t${1:name}: ${2:type}", "}>()"],
+    "description": "Vue defineProps"
+  },
+  "Vue Define Props with defaults": {
+    "scope": "vue",
+    "prefix": "vdefineprops-withdefaults",
+    "body": [
+      "withDefaults(defineProps<{",
+      "\t${1:name}: ${2:type}",
+      "}>(), {",
+      "\t${1:name}: ${3:default}",
+      "})"
+    ],
+    "description": "Vue withDefaults(defineProps)"
+  },
+  "Vue Define Emits": {
+    "scope": "vue",
+    "prefix": "vdefineemits",
+    "body": ["const emit = defineEmits<{", "\t${1:eventName}: [${0}]", "}>()"],
+    "description": "Vue defineEmits"
+  },
+  "Vue Single Emit": {
+    "scope": "vue",
+    "prefix": "vsingleemit",
+    "body": ["${1:eventName}: [${0}]"],
+    "description": "Vue single emit for defineEmits"
+  },
+  "Vue Define Slots": {
+    "scope": "vue",
+    "prefix": "vdefineslots",
+    "body": ["defineSlots<{", "\tdefault: (props: { ${0} }) => any", "}>()"],
+    "description": "Vue defineSlots"
+  },
+  "Vue Single Slot": {
+    "scope": "vue",
+    "prefix": "vsingleslot",
+    "body": ["\t${1:slotName}: (props: { ${0} }) => any"],
+    "description": "Vue single slot for defineSlots"
+  },
+  "Vue Define Options": {
+    "scope": "vue",
+    "prefix": "vdefineoptions",
+    "body": ["defineOptions({", "\t${0}", "})"],
+    "description": "Vue defineOptions"
+  },
+  "Vue Define Model": {
+    "scope": "vue",
+    "prefix": "vdefinemodel",
+    "body": ["const modelValue = defineModel()"],
+    "description": "Vue defineModel"
+  },
+  // *VUE PINIA
+  "Pinia Store Base - Composition API": {
+    "prefix": "pstore-composition",
+    "body": [
+      "import { defineStore, acceptHMRUpdate } from \"pinia\"",
+      "",
+      "export const use${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}Store = defineStore(\"$TM_FILENAME_BASE\", () => {",
+      "\t${0}",
+      "})",
+      "",
+      "if (import.meta.hot) {",
+      "\timport.meta.hot.accept(acceptHMRUpdate(use${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}Store, import.meta.hot))",
+      "}",
+      ""
+    ],
+    "description": "Base code needed for a Pinia store file with Composition API"
+  },
+  // ! React
+  "React base": {
+    "scope": "typescriptreact",
+    "prefix": "rbase",
+    "body": [
+      "export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = () => { ",
+      "",
+      " return (",
+      "  \t<${2:div}>",
+      "",
+      "  \t</${2:div}>",
+      " );",
+      "};",
+    ],
+    "description": "Vue base structure"
+  },
+}
