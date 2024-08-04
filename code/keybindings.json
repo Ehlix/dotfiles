@@ -152,10 +152,10 @@
       "commands": ["workbench.action.files.save", "extension.vim_escape"]
     }
   },
-  {
-    "key": "ctrl+alt+l",
-    "command": "editor.action.formatDocument"
-  },
+  // {
+  //   "key": "ctrl+alt+l",
+  //   "command": "editor.action.formatDocument"
+  // },
   {
     "key": "alt+right",
     "command": "workbench.action.nextEditor"

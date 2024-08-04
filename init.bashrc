@@ -13,3 +13,4 @@ ln -s $HOME/dotfiles/yazi ~/.config
 ln -s $HOME/dotfiles/code/settings.json ~/.config/Code/User/
 ln -s $HOME/dotfiles/code/keybindings.json ~/.config/Code/User/
 ln -s $HOME/dotfiles/code/snipets.code-snippets ~/.config/Code/User/snippets
+ln -s $HOME/dotfiles/xfce4/helpers.rc ~/.config/xfce4/

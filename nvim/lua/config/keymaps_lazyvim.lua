@@ -1,5 +1,6 @@
 -- This file replaces LazyVim/lua/lazyvim/config/keymaps.lua
 local map = LazyVim.safe_keymap_set
+local Util = require("lazyvim.util")
 
 -- Move in windows using <ctrl> arrow keys
 map("n", "<C-A-h>", "<C-w>h", { desc = "Go to left window" })
@@ -21,7 +22,6 @@ map("", "L", "$")
 
 -- Redo
 map("n", "U", "<C-r>")
-
 
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
@@ -103,15 +103,28 @@ map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 -- stylua: ignore start
 
 -- toggle options
-map("n", "<leader>uf", function() LazyVim.format.toggle() end, { desc = "Toggle auto format (global)" })
-map("n", "<leader>uF", function() LazyVim.format.toggle(true) end, { desc = "Toggle auto format (buffer)" })
-map("n", "<leader>us", function() LazyVim.toggle("spell") end, { desc = "Toggle Spelling" })
-map("n", "<leader>uw", function() LazyVim.toggle("wrap") end, { desc = "Toggle Word Wrap" })
-map("n", "<leader>ul", function() LazyVim.toggle.number() end, { desc = "Toggle Line Numbers" })
-map("n", "<leader>ud", LazyVim.toggle.diagnostics, { desc = "Toggle Diagnostics" })
-local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
-map("n", "<leader>uc", function() LazyVim.toggle("conceallevel", false, { 0, conceallevel }) end,
-  { desc = "Toggle Conceal" })
+-- map("n", "<leader>uf", function() LazyVim.format.toggle() end, { desc = "Toggle auto format (global)" })
+-- map("n", "<leader>uF", function() LazyVim.format.toggle(true) end, { desc = "Toggle auto format (buffer)" })
+-- map("n", "<leader>us", function() LazyVim.toggle("spell") end, { desc = "Toggle Spelling" })
+-- map("n", "<leader>uw", function() LazyVim.toggle("wrap") end, { desc = "Toggle Word Wrap" })
+-- map("n", "<leader>ul", function() LazyVim.toggle.number() end, { desc = "Toggle Line Numbers" })
+-- map("n", "<leader>ud", LazyVim.toggle.diagnostics, { desc = "Toggle Diagnostics" })
+-- local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 3
+-- map("n", "<leader>uc", function() LazyVim.toggle("conceallevel", false, { 0, conceallevel }) end,
+--   { desc = "Toggle Conceal" })
+--
+LazyVim.toggle.map("<leader>uf", LazyVim.toggle.format())
+LazyVim.toggle.map("<leader>uF", LazyVim.toggle.format(true))
+LazyVim.toggle.map("<leader>us", LazyVim.toggle("spell", { name = "Spelling" }))
+LazyVim.toggle.map("<leader>uw", LazyVim.toggle("wrap", { name = "Wrap" }))
+LazyVim.toggle.map("<leader>uL", LazyVim.toggle("relativenumber", { name = "Relative Number" }))
+LazyVim.toggle.map("<leader>ud", LazyVim.toggle.diagnostics)
+LazyVim.toggle.map("<leader>ul", LazyVim.toggle.number)
+LazyVim.toggle.map("<leader>uc",
+  LazyVim.toggle("conceallevel", { values = { 0, vim.o.conceallevel > 0 and vim.o.conceallevel or 2 } }))
+LazyVim.toggle.map("<leader>uT", LazyVim.toggle.treesitter)
+LazyVim.toggle.map("<leader>ub", LazyVim.toggle("background", { values = { "light", "dark" }, name = "Background" }))
+if vim.lsp.inlay_hint then LazyVim.toggle.map("<leader>uh", LazyVim.toggle.inlay_hints) end
 map("n", "<leader>ug", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Toggle Git blame" })
 if vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint then
   map("n", "<leader>uh", function() LazyVim.toggle.inlay_hints() end, { desc = "Toggle Inlay Hints" })

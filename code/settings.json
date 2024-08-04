@@ -1,30 +1,50 @@
 {
   "keyboard.dispatch": "keyCode",
   "window.title": "${rootName}",
-  "window.menuBarVisibility": "compact",
-  "editor.tabSize": 2,
   "editor.inlineSuggest.enabled": true,
-  "editor.smoothScrolling": false,
-  "editor.stickyScroll.enabled": true,
+  "editor.inlayHints.enabled": "on",
+  "editor.guides.bracketPairs": "active",
+  "editor.folding": false,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "JetbrainsMonoNL Nerd Font Mono",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 18,
+  "editor.linkedEditing": true,
+  "editor.matchBrackets": "near",
   "editor.minimap.enabled": false,
   "editor.minimap.scale": 2,
   "editor.minimap.showSlider": "always",
-  "editor.inlayHints.enabled": "on",
-  "editor.matchBrackets": "near",
-  "editor.linkedEditing": true,
   "editor.rulers": [80],
+  "editor.smoothScrolling": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.scrollBeyondLastLine": false,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": false,
+  "editor.wordWrap": "on",
+  // Bracket-pair colorization
+  "editor.bracketPairColorization.enabled": false,
+  // Bracket-pair guides
+  "editor.guides.bracketPairsHorizontal": false,
+  "editor.guides.highlightActiveBracketPair": false,
+  // Indentation guides
+  "editor.guides.indentation": true,
+  "editor.guides.highlightActiveIndentation": true,
+  //cursor
+  "editor.cursorBlinking": "blink",
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 2,
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.occurrencesHighlight": "off",
+  //
   // "editor.cursorSurroundingLines": 3,
   // "editor.fontFamily": "Monocraft",
   // "editor.fontFamily": "Liberation Mono",
-  "editor.fontFamily": "JetbrainsMonoNL Nerd Font Mono",
   // "editor.fontFamily": "LiterationMono Nerd Font Mono",
-  "editor.fontSize": 14,
-  "editor.lineHeight": 18,
   "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "never"
   },
-  "editor.guides.bracketPairs": "active",
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "[css]": {
     "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
@@ -59,27 +79,8 @@
   "[tailwindcss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.formatOnSave": false,
   "prettier.tabWidth": 2,
   "prettier.singleQuote": true,
-  "editor.suggestSelection": "first",
-  "editor.scrollBeyondLastLine": false,
-  "editor.fontLigatures": true,
-  "editor.wordWrap": "on",
-  // Bracket-pair colorization
-  "editor.bracketPairColorization.enabled": false,
-  // Bracket-pair guides
-  "editor.guides.bracketPairsHorizontal": false,
-  "editor.guides.highlightActiveBracketPair": false,
-  // Indentation guides
-  "editor.guides.indentation": true,
-  "editor.guides.highlightActiveIndentation": true,
-  //cursor
-  "editor.cursorBlinking": "blink",
-  "editor.cursorStyle": "line",
-  "editor.cursorWidth": 2,
-  "editor.cursorSmoothCaretAnimation": "off",
-  "editor.occurrencesHighlight": "off",
   // Theme
   "workbench.colorCustomizations": {
     "editorWhitespace.foreground": "#ffffff3f",
@@ -89,8 +90,9 @@
     "editor.selectionForeground": "#ffffffe0",
     "editor.selectionBackground": "#3d3c5b95",
     "editor.selectionHighlightBackground": "#00000000",
+    "statusBarItem.remoteForeground": "#5de4c7",
+    "statusBarItem.remoteBackground": "#00000000",
     "editor.selectionHighlightBorder": "#ffffff46"
-    // "statusBar.noFolderBackground": "#ffffff00",
   },
   "material-icon-theme.folders.theme": "classic",
   "workbench.editor.enablePreview": false,
@@ -103,6 +105,7 @@
   "workbench.startupEditor": "none",
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
+  "window.menuBarVisibility": "classic",
   //
   "git.autofetch": true,
   "git.mergeEditor": true,
@@ -181,7 +184,6 @@
   "errorLens.messageMaxChars": 200,
   "errorLens.scrollbarHackEnabled": true,
   "svgPreview.autoOpen": false,
-  "explorer.confirmDelete": false,
   "cSpell.userWords": ["axios", "reatom", "tailwindcss"],
   "window.confirmSaveUntitledWorkspace": false,
   "gitlens.hovers.currentLine.over": "line",
@@ -229,6 +231,10 @@
     {
       "before": ["<Esc>"],
       "commands": [":nohl"]
+    },
+    {
+      "before": ["<Leader>", "<Space>"],
+      "commands": ["whichkey.show"]
     },
     {
       "before": ["<Space>"],
@@ -341,10 +347,44 @@
     {
       "before": ["U"],
       "after": ["<C-r>"]
+    },
+    // disable yanking
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["X"],
+      "after": ["\"", "_", "X"]
+    },
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
     }
   ],
-  "vim.visualModeKeyBindings": [
-    // better indenting //
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // delete/paste without yanking
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"],
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"],
+    },
+    {
+      "before": ["p"],
+      "after": ["\"", "_", "d", "P"],
+    },
+    // better indenting
     {
       "before": ["<"],
       "after": ["<", "g", "v"]
@@ -352,8 +392,22 @@
     {
       "before": [">"],
       "after": [">", "g", "v"]
+    },
+    // faster scrolling
+    {
+      "before": ["J"],
+      "after": ["5", "j"],
+      "silent": true
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"],
+      "silent": true
     }
   ],
   "window.customTitleBarVisibility": "auto",
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "window.commandCenter": false
 }

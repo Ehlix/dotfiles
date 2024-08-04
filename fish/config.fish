@@ -8,5 +8,4 @@ alias yy='/home/helix/pkg/yazi/target/release/yazi'
 alias ll='ls -lh'
 
 
-
 starship init fish | source
