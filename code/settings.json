@@ -1,6 +1,7 @@
 {
   "keyboard.dispatch": "keyCode",
   "window.title": "${rootName}",
+  "breadcrumbs.enabled": false,
   "editor.inlineSuggest.enabled": true,
   "editor.inlayHints.enabled": "on",
   "editor.guides.bracketPairs": "active",
@@ -99,13 +100,13 @@
   "workbench.localHistory.enabled": false,
   "workbench.list.smoothScrolling": false,
   "workbench.editor.wrapTabs": true,
-  "workbench.activityBar.location": "top",
+  "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "poimandres",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
   "window.titleBarStyle": "custom",
   "window.customMenuBarAltFocus": false,
-  "window.menuBarVisibility": "classic",
+  "window.menuBarVisibility": "hidden",
   //
   "git.autofetch": true,
   "git.mergeEditor": true,
@@ -368,7 +369,7 @@
     {
       "before": ["D"],
       "after": ["\"", "_", "D"]
-    }
+    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     // delete/paste without yanking

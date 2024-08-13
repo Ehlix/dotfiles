@@ -5,7 +5,10 @@ end
 set fish_greeting
 
 alias yy='/home/helix/pkg/yazi/target/release/yazi'
-alias ll='ls -lh'
-
+alias l='eza -l --color=always --grid --group-directories-first --icons'
+alias ll='eza -lah --color=always --group-directories-first --icons'
+alias lll='exa -aT --color=always --group-directories-first --icons'
+alias la='exa -al --color=always --group-directories-first --icons'
 
 starship init fish | source
+zoxide init fish | source

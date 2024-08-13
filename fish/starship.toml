@@ -13,25 +13,25 @@ add_newline = false
 
 [username]
 show_always = true
-format = "[$user ](subtext2)"
+format = "[$user ](green1)"
 
 [directory]
-format = "[$path](blue) "
+format = "[$path](blue1) "
 truncation_length = 3
 truncation_symbol = "…/"
 
 [character]
-success_symbol = "[❯](subtext2)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = "[❯](green1)"
+error_symbol = "[❯](red1)"
+vimcmd_symbol = "[❮](green1)"
 
 [git_branch]
 format = "[$branch]($style)"
-style = "bright-black"
+style = "green2"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
+style = "blue1"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -42,15 +42,15 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "green2"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "yellow"
+style = "yellow1"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "bright-black"
+style = "yellow1"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -65,7 +65,7 @@ green = "#a6e3a1"
 teal = "#94e2d5"
 sky = "#89dceb"
 sapphire = "#74c7ec"
-blue = "#89b4fa"
+blue = "#add7ff"
 lavender = "#b4befe"
 text = "#cdd6f4"
 subtext1 = "#bac2de"
@@ -76,6 +76,21 @@ overlay0 = "#6c7086"
 surface2 = "#585b70"
 surface1 = "#45475a"
 surface0 = "#313244"
-base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+base = "#1b1e28"
+red1 = "#d0679d"
+red2 = "#fcc5e9"
+yellow1 = "#fffac2"
+green1 = "#5de4c7"
+green2 = "#5fb3a1"
+blue1 = "#add7ff"
+blue2 = "#89ddff"
+text1 = "#ffffff"
+text2 = "#e4f0fb"
+grey1 = "#a6accd"
+grey2 = "#506477"
+grey3 = "#303340"
+grey4 = "#1b1e28"
+grey5 = "#171922"
+subtext2 = "#5de4c7"
