@@ -54,7 +54,9 @@ for_window [app_id="qalculate-gtk"] floating enable
 
 # Screen lock
 #
-exec swayidle -w \
+  bindsym $mod+shift+w exec swaylock
+#
+  exec swayidle -w \
          timeout 2000 'swaylock -f -c 000000' \
          timeout 2100 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
@@ -86,7 +88,7 @@ input type:keyboard {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym $mod+shift+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu

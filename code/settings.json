@@ -4,7 +4,6 @@
   "breadcrumbs.enabled": false,
   "editor.inlineSuggest.enabled": true,
   "editor.inlayHints.enabled": "on",
-  "editor.guides.bracketPairs": "active",
   "editor.folding": false,
   "editor.fontLigatures": true,
   "editor.fontFamily": "JetbrainsMonoNL Nerd Font Mono",
@@ -24,13 +23,14 @@
   "editor.formatOnSave": false,
   "editor.wordWrap": "on",
   // Bracket-pair colorization
+  "editor.guides.bracketPairs": "active",
   "editor.bracketPairColorization.enabled": false,
   // Bracket-pair guides
   "editor.guides.bracketPairsHorizontal": false,
   "editor.guides.highlightActiveBracketPair": false,
   // Indentation guides
   "editor.guides.indentation": true,
-  "editor.guides.highlightActiveIndentation": true,
+  "editor.guides.highlightActiveIndentation": false,
   //cursor
   "editor.cursorBlinking": "blink",
   "editor.cursorStyle": "line",
@@ -51,7 +51,7 @@
     "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
   },
   "[scss]": {
-    "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -70,6 +70,12 @@
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[php]": {
+   "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
   // "[javascript]": {
   //   "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -93,15 +99,21 @@
     "editor.selectionHighlightBackground": "#00000000",
     "statusBarItem.remoteForeground": "#5de4c7",
     "statusBarItem.remoteBackground": "#00000000",
-    "editor.selectionHighlightBorder": "#ffffff46"
+    "editor.selectionHighlightBorder": "#ffffff46",
+    "editorBracketHighlight.foreground": "#5de4c7",
+    "editorBracketHighlight.foreground1": "#5de4c7",
+    "editorBracketHighlight.foreground2": "#5de4c7",
+    "editorBracketHighlight.foreground3": "#5de4c7",
+    "editorBracketHighlight.foreground4": "#5de4c7",
+    "editorBracketHighlight.foreground5": "#5de4c7",
+    "editorBracketHighlight.foreground6": "#5de4c7",
   },
   "material-icon-theme.folders.theme": "classic",
   "workbench.editor.enablePreview": false,
   "workbench.localHistory.enabled": false,
   "workbench.list.smoothScrolling": false,
   "workbench.editor.wrapTabs": true,
-  "workbench.activityBar.location": "hidden",
-  "workbench.colorTheme": "poimandres",
+  "workbench.activityBar.location": "top",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
   "window.titleBarStyle": "custom",
@@ -370,6 +382,31 @@
       "before": ["D"],
       "after": ["\"", "_", "D"]
     },
+    // rus keys
+    {
+      "before": ["ф"],
+      "after": ["a"]
+    },
+    {
+      "before": ["ш"],
+      "after": ["i"]
+    },
+    {
+      "before": ["о"],
+      "after": ["j"]
+    },
+    {
+      "before": ["л"],
+      "after": ["k"]
+    },
+    {
+      "before": ["р"],
+      "after": ["h"]
+    },
+    {
+      "before": ["д"],
+      "after": ["l"]
+    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     // delete/paste without yanking
@@ -410,5 +447,6 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
-  "window.commandCenter": false
+  "window.commandCenter": false,
+  "workbench.colorTheme": "Poimandres Alternate"
 }
