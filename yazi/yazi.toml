@@ -1,9 +1,23 @@
 [manager]
-show_hidden = true
+show_hidden = false
 
 #
 [opener]
 edit = [{ run = 'nvim "$@"', block = true }]
-play = [{ run = 'mpv "$@"', orphan = true, for = "unix" }]
-open = [{ run = 'imv "$@"', desc = "Open" }]
-# open = [{ run = 'xdg-open "$@"', desc = "Open" }]
+play = [
+  { run = 'mpv "$@"', orphan = true, for = "unix" },
+]
+open = [
+{ run = 'imv "$@"', desc = "Open" },
+{ run = 'xdg-open "$@"', orphan = true, for = "unix" },
+]
+reveal = [
+	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
+	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
+	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
+	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+]
+[open]
+rules = [
+	{ name = "*", use = ["edit", "play", "open", "reveal"] },
+]

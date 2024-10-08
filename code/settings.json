@@ -75,7 +75,7 @@
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
   "[php]": {
-   "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
   // "[javascript]": {
   //   "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -107,6 +107,7 @@
     "editorBracketHighlight.foreground4": "#5de4c7",
     "editorBracketHighlight.foreground5": "#5de4c7",
     "editorBracketHighlight.foreground6": "#5de4c7",
+    "tab.activeBorder": "#b02266"
   },
   "material-icon-theme.folders.theme": "classic",
   "workbench.editor.enablePreview": false,
@@ -317,6 +318,11 @@
       "before": ["L"],
       "after": ["$"]
     },
+    // git
+    {
+      "before": ["<Leader>", "g", "g"],
+      "commands": ["lazygit.openLazygit"],
+    },
     // faster scrolling
     {
       "before": ["J"],
@@ -406,21 +412,21 @@
     {
       "before": ["д"],
       "after": ["l"]
-    },
+    }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     // delete/paste without yanking
     {
       "before": ["d"],
-      "after": ["\"", "_", "d"],
+      "after": ["\"", "_", "d"]
     },
     {
       "before": ["D"],
-      "after": ["\"", "_", "D"],
+      "after": ["\"", "_", "D"]
     },
     {
       "before": ["p"],
-      "after": ["\"", "_", "d", "P"],
+      "after": ["\"", "_", "d", "P"]
     },
     // better indenting
     {
@@ -448,5 +454,5 @@
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
   "window.commandCenter": false,
-  "workbench.colorTheme": "Poimandres Alternate"
+  "workbench.colorTheme": "MK Mono Dark"
 }
