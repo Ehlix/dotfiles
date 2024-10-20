@@ -76,3 +76,6 @@ map("i", "<C-Z>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { desc = "Correct latest misspell
 -- folds
 map("n", "<c-h>", "za", { desc = "Toggle Fold" })
 
+--
+map("n", "<C-J>", "<down>", { desc = "Down" })
+map("n", "<C-K>", "<up>", { desc = "Up" })

@@ -107,7 +107,8 @@
     "editorBracketHighlight.foreground4": "#5de4c7",
     "editorBracketHighlight.foreground5": "#5de4c7",
     "editorBracketHighlight.foreground6": "#5de4c7",
-    "tab.activeBorder": "#b02266"
+    "tab.activeBorder": "#b02266",
+    "tab.activeBackground": "#000000",
   },
   "material-icon-theme.folders.theme": "classic",
   "workbench.editor.enablePreview": false,

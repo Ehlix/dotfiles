@@ -14,5 +14,6 @@ ln -sf $HOME/dotfiles/code/keybindings.json ~/.config/Code/User/
 ln -sf $HOME/dotfiles/code/snipets.code-snippets ~/.config/Code/User/snippets
 ln -sf $HOME/dotfiles/xfce4/helpers.rc ~/.config/xfce4/
 ln -sf $HOME/dotfiles/dunst ~/.config
+ln -sf $HOME/dotfiles/zed ~/.config
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'

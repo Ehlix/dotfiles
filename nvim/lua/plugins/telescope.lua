@@ -6,7 +6,7 @@ return {
     keys = function()
       return {
         { "<leader>mr", LazyVim.pick("auto", { root = false }), desc = "Find Files (Root Dir)" },
-        { "<leader>ms", LazyVim.pick("auto", { root = true }),  desc = "Find Files (cwd)" },
+        { "<leader>ms", LazyVim.pick("auto", { root = true }), desc = "Find Files (cwd)" },
         {
           "<leader>mt",
           function()
@@ -21,7 +21,7 @@ return {
           end,
           desc = "Grep (Root Dir)",
         },
-        { "<leader><space>s", LazyVim.pick("live_grep", { root = true }),                      desc = "Grep (cwd)" },
+        { "<leader><space>s", LazyVim.pick("live_grep", { root = true }), desc = "Grep (cwd)" },
         {
           "<leader><space>t",
           function()
@@ -36,7 +36,7 @@ return {
           end,
           desc = "Word (Root Dir)",
         },
-        { "<leader>S",        LazyVim.pick("grep_string", { root = true, word_match = "-w" }), desc = "Word (cwd)" },
+        { "<leader>S", LazyVim.pick("grep_string", { root = true, word_match = "-w" }), desc = "Word (cwd)" },
         {
           "<leader>T",
           function()
@@ -47,18 +47,18 @@ return {
           end,
           desc = "Word (Buffer dir)",
         },
-        { "<leader>mv", "<cmd>Telescope oldfiles<cr>",                                 desc = "Recent files" },
+        { "<leader>mv", "<cmd>Telescope oldfiles<cr>", desc = "Recent files" },
         { "<leader>mb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Switch Buffer" },
-        { "<leader>H",  "<cmd>Telescope help_tags<cr>",                                desc = "Help Pages" },
-        { "<leader>mq", "<cmd>Telescope commands<cr>",                                 desc = "Commands" },
-        { "qq",         "<cmd>Telescope command_history<cr>",                          desc = "Command History" },
-        { "q/",         "<cmd>Telescope search_history<cr>",                           desc = "Command History" },
-        { "<leader>mn", "<cmd>Telescope man_pages<cr>",                                desc = "Man pages" },
-        { "<leader>qf", "<cmd>Telescope quickfix<cr>",                                 desc = "Quickfix List" },
-        { "<leader>mm", "<cmd>Telescope resume<cr>",                                   desc = "Resume" },
-        { "<leader>mo", "<cmd>Telescope notify<cr>",                                   desc = "Notifications" },
+        { "<leader>H", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+        { "<leader>mq", "<cmd>Telescope commands<cr>", desc = "Commands" },
+        { "qq", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+        { "q/", "<cmd>Telescope search_history<cr>", desc = "Command History" },
+        { "<leader>mn", "<cmd>Telescope man_pages<cr>", desc = "Man pages" },
+        { "<leader>qf", "<cmd>Telescope quickfix<cr>", desc = "Quickfix List" },
+        { "<leader>mm", "<cmd>Telescope resume<cr>", desc = "Resume" },
+        { "<leader>mo", "<cmd>Telescope notify<cr>", desc = "Notifications" },
         -- lsp
-        { "<space>o",   "<cmd>Telescope lsp_document_symbols<cr>",                     desc = "LSP document symboles" },
+        { "<space>o", "<cmd>Telescope lsp_document_symbols<cr>", desc = "LSP document symboles" },
         {
           "<space>O",
           function()
@@ -68,13 +68,19 @@ return {
           end,
           desc = "Goto Symbol (Workspace)",
         },
-        { "<space>i",   "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
-        { "<leader>mk", "<cmd>Telescope keymaps<cr>",             desc = "Key Maps" },
+        { "<space>i", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+        { "<leader>mk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
       }
     end,
     opts = function(_, opts)
       opts.defaults.mappings = {
         i = {
+          ["<C-j>"] = function(...)
+            return require("telescope.actions").move_selection_next(...)
+          end,
+          ["<C-k>"] = function(...)
+            return require("telescope.actions").move_selection_previous(...)
+          end,
           -- ["<esc>"] = "close",
           ["<C-t>"] = function(...)
             return require("trouble.providers.telescope").open_with_trouble(...)

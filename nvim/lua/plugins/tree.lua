@@ -4,6 +4,13 @@ return {
     keys = function()
       return {
         {
+          "<C-E>",
+          function()
+            require("neo-tree.command").execute({ toggle = false, dir = LazyVim.root() })
+          end,
+          desc = "Explorer NeoTree (root dir)",
+        },
+        {
           "<space>e",
           function()
             require("neo-tree.command").execute({ toggle = false, dir = LazyVim.root() })

@@ -1,5 +1,4 @@
 return {
-  -- { "kar9222/minimalist.nvim" },
   -- {
   --   "chrsm/paramount-ng.nvim",
   --   dependencies = {
@@ -18,22 +17,35 @@ return {
   --   end,
   -- },
   {
-    "olivercederborg/poimandres.nvim",
+    "catppuccin/nvim",
     lazy = false,
     priority = 1000,
+    name = "catppuccin",
     config = function()
-      require("poimandres").setup({
-        disable_background = true,
-        -- groups = {
-        --   background = '#000000',
-        -- }
+      require("catppuccin").setup({
+        flavour = "mocha",
+        color_overrides = {},
       })
     end,
   },
+  -- {
+  --   "olivercederborg/poimandres.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   -- config = function()
+  --   --   require("poimandres").setup({
+  --   --     -- disable_background = true,
+  --   --     groups = {
+  --   --       -- background = '#000000',
+  --   --     }
+  --   --   })
+  --   -- end,
+  -- },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "poimandres",
+      colorscheme = "catppuccin",
+      -- colorscheme = "poimandres",
       -- colorscheme = "tokyonight-night",
       -- colorscheme = "monochrome",
       -- colorscheme = "minimalist",
