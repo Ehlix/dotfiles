@@ -18,7 +18,7 @@ vim.opt.swapfile = false       -- Use an SCM instead of swap files
 
 vim.opt.virtualedit = "block"  -- Allow going past the end of line in visual block mode
 
-vim.opt.wrap = true            -- Disable line wrapping
+vim.opt.wrap = true            -- Line wrapping
 
 -- vim.opt.spelllang = { "en_us" }
 vim.opt.spell = true

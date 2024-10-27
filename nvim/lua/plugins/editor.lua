@@ -6,12 +6,12 @@ return {
       highlight = { timer = 200 },
     },
     keys = {
-      { "p",     "<Plug>(YankyPutAfter)",               mode = { "n", "x" } },
-      { "P",     "<Plug>(YankyPutBefore)",              mode = { "n", "x" } },
+      { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" } },
+      { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
       { "<c-e>", "<Plug>(YankyCycleForward)" },
       { "<c-n>", "<Plug>(YankyCycleBackward)" },
-      { "]p",    "<Plug>(YankyPutIndentAfterLinewise)" },
-      { "[p",    "<Plug>(YankyPutIndentBeforeLinewise)" },
+      { "]p", "<Plug>(YankyPutIndentAfterLinewise)" },
+      { "[p", "<Plug>(YankyPutIndentBeforeLinewise)" },
     },
   },
   {
@@ -68,7 +68,7 @@ return {
     "folke/trouble.nvim",
     keys = {
       { "<space>d", "<cmd>TroubleToggle<cr>", desc = "Trouble toggle" },
-      { "<space>D", "<cmd>Trouble<cr>",       desc = "Trouble open" },
+      { "<space>D", "<cmd>Trouble<cr>", desc = "Trouble open" },
       {
         "<space><space>",
         function()
@@ -100,9 +100,9 @@ return {
     "almo7aya/openingh.nvim",
     lazy = true,
     keys = {
-      { "<leader>gh", "<cmd>OpenInGHFile<cr>",      mode = "n",                  desc = "Open file in GitHub" },
-      { "<leader>gH", "<cmd>OpenInGHFileLines<cr>", mode = "v",                  desc = "Open file in GitHub" },
-      { "<leader>gr", "<cmd>OpenInGHRepo<cr>",      desc = "Open repo in GitHub" },
+      { "<leader>gh", "<cmd>OpenInGHFile<cr>", mode = "n", desc = "Open file in GitHub" },
+      { "<leader>gH", "<cmd>OpenInGHFileLines<cr>", mode = "v", desc = "Open file in GitHub" },
+      { "<leader>gr", "<cmd>OpenInGHRepo<cr>", desc = "Open repo in GitHub" },
     },
   },
 
@@ -127,4 +127,3 @@ return {
     },
   },
 }
-

@@ -2,39 +2,38 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "LazyFile",
-  --   opts = {
-  --     indent = {
-  --       char = "│",
-  --       tab_char = "│",
-  --     },
-  --     scope = { show_start = false, show_end = false },
-  --     exclude = {
-  --       filetypes = {
-  --         "help",
-  --         "alpha",
-  --         "dashboard",
-  --         "neo-tree",
-  --         "Trouble",
-  --         "trouble",
-  --         "lazy",
-  --         "mason",
-  --         "notify",
-  --         "toggleterm",
-  --         "lazyterm",
-  --       },
-  --     },
-  --   },
-  --   main = "ibl",
-      opts = {
-        scope = { enabled = false },
-      }
+    --   opts = {
+    --     indent = {
+    --       char = "│",
+    --       tab_char = "│",
+    --     },
+    --     scope = { show_start = false, show_end = false },
+    --     exclude = {
+    --       filetypes = {
+    --         "help",
+    --         "alpha",
+    --         "dashboard",
+    --         "neo-tree",
+    --         "Trouble",
+    --         "trouble",
+    --         "lazy",
+    --         "mason",
+    --         "notify",
+    --         "toggleterm",
+    --         "lazyterm",
+    --       },
+    --     },
+    --   },
+    --   main = "ibl",
+    opts = {
+      scope = { enabled = false },
+    },
   },
   {
     "echasnovski/mini.indentscope",
     version = false, -- wait till new 0.7.0 release to put it back on semver
     event = "LazyFile",
     opts = {
-      -- symbol = "▏",
       symbol = "│",
       options = { try_as_border = true },
     },
@@ -58,5 +57,5 @@ return {
         end,
       })
     end,
-  }
+  },
 }

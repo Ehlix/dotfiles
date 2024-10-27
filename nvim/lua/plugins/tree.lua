@@ -64,7 +64,7 @@ return {
         ["H"] = "toggle_hidden",
       }
       opts.filesystem.filtered_items = { always_show = { "application.conf" } }
-      opts.filesystem.group_empty_dirs = true -- when true, empty folders will be grouped together
+      opts.filesystem.group_empty_dirs = false -- when true, empty folders will be grouped together
       opts.sort_case_insensitive = true
     end,
   },

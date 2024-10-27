@@ -100,6 +100,7 @@ return {
         },
       }
       opts.defaults.dynamic_preview_title = true
+      opts.defaults.file_ignore_patterns = { "node_modules", "build", "dist", "target" }
     end,
     config = function(_, opts)
       local tel = require("telescope")
