@@ -17,3 +17,12 @@ alias cd='z'
 alias pn='pnpm'
 alias telegram='telegram-desktop'
 alias nnv='foot & nvim'
+alias wttr='curl "wttr.in/?QF3"'
+alias cal='cal -y -m'
+alias lzg='lazygit'
+alias lzd='lazydocker'
+alias lzsql='lazysql'
+
+bind \cs '__ethp_commandline_toggle_sudo.fish'
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

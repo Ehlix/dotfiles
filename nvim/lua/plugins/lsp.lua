@@ -19,7 +19,10 @@ return {
       document_highlight = {
         enabled = false,
       },
-      inlay_hints = { enabled = false },
+      inlay_hints = {
+        enabled = false,
+        variableTypes = { enabled = false },
+      },
       servers = {
         volar = {
           filetypes = {
