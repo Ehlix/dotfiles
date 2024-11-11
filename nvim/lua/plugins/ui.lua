@@ -115,16 +115,6 @@ return {
       -- table.remove(opts.sections.lualine_y, 3)
     end,
   },
-  {
-    "folke/noice.nvim",
-    opts = {
-      lsp = {
-        hover = {
-          silent = true,
-        },
-      },
-    },
-  },
 
   -- dashboard
   {
