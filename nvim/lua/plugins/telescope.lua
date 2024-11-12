@@ -107,7 +107,7 @@ return {
       tel.setup(opts)
       tel.load_extension("yank_history")
       tel.load_extension("fzf")
-      tel.load_extension("notify")
+      -- tel.load_extension("notify")
     end,
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
