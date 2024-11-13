@@ -25,16 +25,27 @@ return {
       },
       servers = {
         volar = {
-          filetypes = {
-            -- "typescrips",
-            "vue",
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
           },
-          root_dir = util.root_pattern("src/App.vue"),
+          -- filetypes = {
+          --   -- "typescrips",
+          --   "vue",
+          -- },
+          -- root_dir = util.root_pattern("src/App.vue"),
         },
         cssls = {},
         dartls = {},
         rust_analyzer = {},
         pyright = {},
+      },
+      setup = {
+        eslint = function()
+          return {}
+        end,
       },
     },
   },

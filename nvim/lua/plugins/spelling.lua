@@ -62,17 +62,17 @@
 -- end
 
 return {
-  {
-    -- IMPORTANT: cspell must be properly installed (e.g. use npm and verify it can run on cli)
-    "davidmh/cspell.nvim",
-  },
-  {
-    "nvimtools/none-ls.nvim",
-    -- opts = function(_, opts)
-      -- local cspell = require("cspell")
-      -- table.insert(opts.sources, cspell.diagnostics)
-      -- table.insert(opts.sources, cspell.code_actions)
-      -- opts.fallback_severity = vim.diagnostic.severity.HINT
-    -- end,
-  },
+  -- {
+  --   -- IMPORTANT: cspell must be properly installed (e.g. use npm and verify it can run on cli)
+  --   "davidmh/cspell.nvim",
+  -- },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   -- opts = function(_, opts)
+  --     -- local cspell = require("cspell")
+  --     -- table.insert(opts.sources, cspell.diagnostics)
+  --     -- table.insert(opts.sources, cspell.code_actions)
+  --     -- opts.fallback_severity = vim.diagnostic.severity.HINT
+  --   -- end,
+  -- },
 }
