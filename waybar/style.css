@@ -83,6 +83,7 @@ button:hover {
 #power-profiles-daemon,
 #language,
 #mpd {
+  border-left: 1px solid #64727d;
   padding: 0 10px 0 6px;
   margin: 5px 0;
 }
@@ -166,22 +167,22 @@ tooltip {
 }
 
 #power-profiles-daemon {
-  padding-right: 15px;
+  padding: 0 10px 2px 6px;
+  min-width: 10px;
+  color: #505460;
 }
 
 #power-profiles-daemon.performance {
-  background-color: #f53c3c;
-  color: #ffffff;
+  padding-right: 4px;
+  color: #d0679d;
 }
 
 #power-profiles-daemon.balanced {
-  background-color: #2980b9;
-  color: #ffffff;
+  color: #505460;
 }
 
 #power-profiles-daemon.power-saver {
-  background-color: #2ecc71;
-  color: #000000;
+  color: #5de4c7;
 }
 
 label:focus {
