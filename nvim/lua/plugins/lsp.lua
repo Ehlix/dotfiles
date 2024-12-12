@@ -1,5 +1,3 @@
-local util = require("lspconfig.util")
-
 return {
   -- language servers
   {
@@ -12,6 +10,7 @@ return {
       keys[#keys + 1] = { "<leader>cl", vim.lsp.codelens.run, desc = "LSP code lens" }
       keys[#keys + 1] = { "<space>cq", vim.diagnostic.setqflist, desc = "Put diagnostics in quickfix" }
       keys[#keys + 1] = { "<space>cz", vim.diagnostic.reset, desc = "Reset diagnostics" }
+      keys[#keys + 1] = { "<leader>cx", vim.diagnostic.open_float, desc = "Line Diagnostics" }
       keys[#keys + 1] = { "<leader>cf", vim.lsp.buf.format, desc = "LSP format buffer" }
     end,
     ---@class PluginLspOpts

@@ -67,10 +67,6 @@ return {
         },
       }
       opts.sections.lualine_c[4] = { LazyVim.lualine.pretty_path({ length = 6 }) }
-      -- move metals status to the left
-      opts.sections.lualine_z = opts.sections.lualine_y
-      opts.sections.lualine_y = opts.sections.lualine_x
-      -- opts.sections.lualine_x = { "g:metals_status", { require("package-info").get_status } }
       -- remove dap:
       -- table.remove(opts.sections.lualine_y, 3)
     end,
@@ -80,6 +76,7 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      input = { enabled = true },
       dashboard = {
         width = 114,
         preset = {

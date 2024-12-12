@@ -3,24 +3,14 @@ return {
   {
     "mizlan/iswap.nvim",
     keys = {
-      { "gw", ":ISwapWithRight<cr>", desc = "Swap two arguments" },
-      { "<leader>is", ":ISwap<cr>", desc = "Swap many arguments" },
+      { "gw",         ":ISwapWithRight<cr>", desc = "Swap two arguments" },
+      { "<leader>is", ":ISwap<cr>",          desc = "Swap many arguments" },
     },
     opts = {
       keys = "arstdhneio",
     },
   },
-  {
-    "Exafunction/codeium.nvim",
-    dependensies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      require("codeium").setup({})
-    end,
-    enabled = false
-  },
+
   -- auto completion
   {
     "hrsh7th/nvim-cmp",
@@ -39,23 +29,23 @@ return {
     end,
   },
 
-  { "echasnovski/mini.pairs", enabled = true },
 
   -- 30ms of load time for not much use
+  { "echasnovski/mini.pairs",        enabled = false },
   { "rafa madriz/friendly-snippets", enabled = false },
-  { "garymjr/nvim-snippets", enabled = false },
+  { "garymjr/nvim-snippets",         enabled = false },
 
   -- surround
   {
     "echasnovski/mini.surround",
     opts = {
       mappings = {
-        add = "<space>sa", -- Add surrounding in Normal and Visual modes
-        delete = "<space>sd", -- Delete surrounding
-        find = "<space>sf", -- Find surrounding (to the right)
-        find_left = "<space>sF", -- Find surrounding (to the left)
-        highlight = "<space>sh", -- Highlight surrounding
-        replace = "<space>sr", -- Replace surrounding
+        add = "<space>sa",            -- Add surrounding in Normal and Visual modes
+        delete = "<space>sd",         -- Delete surrounding
+        find = "<space>sf",           -- Find surrounding (to the right)
+        find_left = "<space>sF",      -- Find surrounding (to the left)
+        highlight = "<space>sh",      -- Highlight surrounding
+        replace = "<space>sr",        -- Replace surrounding
         update_n_lines = "<space>sn", -- Update `n_lines`
       },
     },
