@@ -12,22 +12,46 @@ return {
   },
 
   -- auto completion
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+{
+    "saghen/blink.cmp",
     opts = function(_, opts)
-      local cmp = require("cmp")
-      opts.mapping = cmp.mapping.preset.insert({
-        ["<C-c>"] = cmp.mapping.abort(),
-        ["<CR>"] = LazyVim.cmp.confirm(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        --   --   --   ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        --   --   --   ["<C-e>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-        ["<C-Space>"] = cmp.mapping.complete(),
-      })
+      opts.sources.default = { "copilot", "lsp", "buffer", "path" }
+      opts.keymap = {
+        preset = nil,
+        ["<C-h>"] = { "select_and_accept" },
+        ["<C-space>"] = { "show", "accept" },
+        ["<C-c>"] = { "hide" },
+        ["<C-j>"] = { "select_next" },
+        ["<C-k>"] = { "select_prev" },
+      }
+      opts.completion.accept.auto_brackets.enabled = false
+      opts.completion.documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 50,
+        update_delay_ms = 50,
+      }
+      -- Displays a preview of the selected item on the current line
+      opts.completion.ghost_text = {
+        enabled = true,
+      }
     end,
   },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter",
+  --   opts = function(_, opts)
+  --     local cmp = require("cmp")
+  --     opts.mapping = cmp.mapping.preset.insert({
+  --       ["<C-c>"] = cmp.mapping.abort(),
+  --       ["<CR>"] = LazyVim.cmp.confirm(),
+  --       ["<C-j>"] = cmp.mapping.select_next_item(),
+  --       ["<C-k>"] = cmp.mapping.select_prev_item(),
+  --       --   --   --   ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+  --       --   --   --   ["<C-e>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+  --       ["<C-Space>"] = cmp.mapping.complete(),
+  --     })
+  --   end,
+  -- },
 
 
   -- 30ms of load time for not much use

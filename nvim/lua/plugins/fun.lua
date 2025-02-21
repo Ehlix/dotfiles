@@ -2,6 +2,7 @@ return {
   -- just 4 fun
   {
     "eandrju/cellular-automaton.nvim",
+    enabled = true,
     keys = {
       {
         "<leader>cer",
@@ -20,4 +21,19 @@ return {
       },
     },
   },
+  {
+    "nvchad/showkeys",
+    cmd = "ShowkeysToggle",
+    keys = {
+      { "<leader>uk", "<cmd>ShowkeysToggle<cr>", desc = "Show keys" },
+    },
+    opts = {
+      timeout = 2,
+      maxkeys = 7,
+      position = "top-right",
+      show_count = true,
+      -- more opts
+    },
+  },
+  { "nvzone/timerly", cmd = "TimerlyToggle", dependencies = { "nvzone/volt" } },
 }

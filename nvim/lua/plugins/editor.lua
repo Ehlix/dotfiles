@@ -3,7 +3,7 @@ return {
   {
     "gbprod/yanky.nvim",
     opts = {
-      highlight = { timer = 200 },
+      highlight = { timer = 150 },
     },
     keys = {
       { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" } },
@@ -64,29 +64,63 @@ return {
 
   { "folke/todo-comments.nvim", enabled = false },
 
-  {
+ {
     "folke/trouble.nvim",
-    keys = {
-      { "<space>d", "<cmd>TroubleToggle<cr>", desc = "Trouble toggle" },
-      { "<space>D", "<cmd>Trouble<cr>", desc = "Trouble open" },
-      {
-        "<space><space>",
-        function()
-          local trouble = require("trouble")
-          if not trouble.is_open() then
-            trouble.open()
-          end
-          trouble.previous({ skip_groups = true, jump = false })
-          trouble.next({ skip_groups = true, jump = true })
-        end,
-        desc = "First trouble item",
+    opts = {
+      auto_close = true, -- auto close when there are no items
+      -- auto_preview = true, -- automatically open preview when on an item
+      auto_refresh = true, -- auto refresh when open
+      modes = {
+        -- errors = {
+        --   mode = "diagnostics", -- inherit from diagnostics mode
+        --   auto_open = false, -- auto open when there are items
+        --   filter = {
+        --     any = {
+        --       {
+        --         severity = vim.diagnostic.severity.ERROR, -- errors only
+        --       },
+        --     },
+        --   },
+        -- },
+        -- mydiags = {
+        --   mode = "diagnostics", -- inherit from diagnostics mode
+        --   auto_open = true, -- auto open when there are items
+        --   filter = {
+        --     any = {
+        --       buf = 0, -- current buffer
+        --       {
+        --         severity = vim.diagnostic.severity.ERROR, -- errors only
+        --         -- limit to files in the current project
+        --         function(item)
+        --           return item.filename:find((vim.loop or vim.uv).cwd(), 1, true)
+        --         end,
+        --       },
+        --     },
+        --   },
+        -- },
+        cascade = {
+          mode = "diagnostics", -- inherit from diagnostics mode
+          auto_open = false, -- auto open when there are items
+          filter = function(items)
+            local severity = vim.diagnostic.severity.HINT
+            for _, item in ipairs(items) do
+              severity = math.min(severity, item.severity)
+            end
+            return vim.tbl_filter(function(item)
+              return item.severity == severity
+            end, items)
+          end,
+        },
       },
     },
-    -- opts = {
-    --   use_diagnostic_signs = true,
-    --   auto_open = false,
-    --   auto_close = true,
-    -- },
+    keys = {
+      { "<space>d", "<cmd>Trouble cascade toggle<cr>", desc = "Diagnostics (Trouble)" },
+      {
+        "<space><space>",
+        "<cmd>Trouble cascade open focus=true<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+    },
   },
 
   -- references
@@ -96,34 +130,21 @@ return {
   -- },
 
   -- open file in GitHub
-  {
+{
     "almo7aya/openingh.nvim",
     lazy = true,
     keys = {
-      { "<leader>gh", "<cmd>OpenInGHFile<cr>", mode = "n", desc = "Open file in GitHub" },
-      { "<leader>gH", "<cmd>OpenInGHFileLines<cr>", mode = "v", desc = "Open file in GitHub" },
-      { "<leader>gr", "<cmd>OpenInGHRepo<cr>", desc = "Open repo in GitHub" },
+      { "<leader>gH", "<cmd>OpenInGHFileLines!<cr>", mode = "v", desc = "Open file in GitHub" },
     },
   },
 
   {
     "gabrielpoca/replacer.nvim",
+    lazy = true,
     keys = {
       { "<leader>qr", ':lua require("replacer").run()<cr>', desc = "QuickFix Replacer" },
     },
   },
 
-  -- search/replace in multiple files
-  {
-    "nvim-pack/nvim-spectre",
-    keys = {
-      {
-        "<leader>sr",
-        function()
-          require("spectre").open_visual({ select_word = true })
-        end,
-        desc = "Replace current word in files (Spectre)",
-      },
-    },
-  },
+  { "meznaric/key-analyzer.nvim", opts = {}, cmd = "KeyAnalyzer" },
 }
