@@ -1,19 +1,28 @@
 return {
+  -- sudo with password prompt
+  -- {
+  --   "lambdalisue/suda.vim",
+  -- },
   -- yank ring
   {
     "gbprod/yanky.nvim",
-    opts = {
-      highlight = { timer = 150 },
-    },
+    enabled = true,
+    opts = { highlight = { timer = 150 } },
+    event = "LazyFile",
+    -- stylua: ignore
     keys = {
-      { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" } },
-      { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
-      { "<c-e>", "<Plug>(YankyCycleForward)" },
-      { "<c-n>", "<Plug>(YankyCycleBackward)" },
-      { "]p", "<Plug>(YankyPutIndentAfterLinewise)" },
-      { "[p", "<Plug>(YankyPutIndentBeforeLinewise)" },
+      -- { "<leader>mp", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Open Yank History", },
+      { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank Text", },
+      { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put Yanked Text After Cursor", },
+      { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put Yanked Text Before Cursor", },
+      { "gp", "<Plug>(YankyGPutAfter)", mode = { "n", "x" }, desc = "Put Yanked Text After Selection", },
+      { "]p", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indented After Cursor (Linewise)" },
+      { "[p", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indented Before Cursor (Linewise)" },
+      { "]g", "<Plug>(YankyCycleForward)" },
+      { "[g", "<Plug>(YankyCycleBackward)" },
     },
   },
+
   {
     "folke/flash.nvim",
     ---@type Flash.Config
@@ -30,41 +39,20 @@ return {
       },
     },
     keys = function()
-      -- ignore
+      -- stylua: ignore
       return {
-        {
-          "s",
-          mode = { "n", "x", "o" },
-          function()
-            require("flash").jump()
-          end,
-          desc = "Flash",
-        },
-        {
-          "S",
-          mode = { "n", "o", "x" },
-          function()
-            require("flash").treesitter()
-          end,
-          desc = "Flash Treesitter",
-        },
+        { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
+        { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
         -- { "r", mode = "o", function() requiee("flash").remote() end, desc = "Remote Flash" },
         -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-        {
-          "<c-s>",
-          mode = { "c" },
-          function()
-            require("flash").toggle()
-          end,
-          desc = "Toggle Flash Search",
-        },
+        { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,     desc = "Toggle Flash Search" },
       }
     end,
   },
 
   { "folke/todo-comments.nvim", enabled = false },
 
- {
+  {
     "folke/trouble.nvim",
     opts = {
       auto_close = true, -- auto close when there are no items
@@ -120,21 +108,11 @@ return {
         "<cmd>Trouble cascade open focus=true<cr>",
         desc = "Diagnostics (Trouble)",
       },
-    },
-  },
-
-  -- references
-  -- {
-  --   "RRethy/vim-illuminate",
-  --   opts = { delay = 100 },
-  -- },
-
-  -- open file in GitHub
-{
-    "almo7aya/openingh.nvim",
-    lazy = true,
-    keys = {
-      { "<leader>gH", "<cmd>OpenInGHFileLines!<cr>", mode = "v", desc = "Open file in GitHub" },
+      {
+        "<space>n",
+        ":Trouble first skip_groups=true jump=true<cr>",
+        desc = "First quickfix",
+      },
     },
   },
 
@@ -146,5 +124,5 @@ return {
     },
   },
 
-  { "meznaric/key-analyzer.nvim", opts = {}, cmd = "KeyAnalyzer" },
+  { "meznaric/key-analyzer.nvim", lazy = true, opts = { layout = "colemak" }, cmd = "KeyAnalyzer" },
 }

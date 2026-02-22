@@ -1,6 +1,6 @@
 local large = {
-  width = 0.97,
-  height = 0.95,
+  width = 0.95,
+  height = 0.9,
 }
 return {
   {
@@ -11,15 +11,46 @@ return {
         blame_line = large,
         notification_history = large,
       },
-      explorer = {
-        
+      picker = {
+        sources = {
+          gh_issue = {},
+          gh_pr = {},
+          explorer = {
+            layout = {
+              layout = {
+                position = "right",
+              },
+            },
+          },
+        },
+        -- wo = {
+        --   winhighlight = "Normal:Normal,NormalFloat:NormalFloat",
+        -- },
       },
+      terminal = {
+        wo = {
+          winhighlight = "Normal:Normal",
+        },
+      },
+      image = {},
+      lazygit = {
+        configure = true,
+        config = {
+          os = { editPreset = "nvim-remote" },
+        },
+      },
+      gh = {
+        wo = {
+          winhighlight = "Normal:Normal",
+        },
+      },
+      bigfile = {},
     },
     keys = {
       {
         "<space>e",
         function()
-          Snacks.explorer({ cwd = LazyVim.root() })
+          Snacks.explorer.open({ cwd = LazyVim.root() })
         end,
         desc = "Explorer Snacks (root dir)",
       },
@@ -30,40 +61,23 @@ return {
         end,
         desc = "Explorer Snacks (cwd)",
       },
-    },
-  },
-  {
-      "folke/snacks.nvim",
-      opts = {
-        dashboard = {
-          preset = {
-            keys = {
-              {
-                icon = "󰘬 ",
-                key = "g",
-                desc = "Git",
-                action = function()
-                  Snacks.lazygit()
-                end,
-              },
-              {
-                icon = " ",
-                key = "f",
-                desc = "Find File",
-                action = ":lua Snacks.dashboard.pick('files', {winopts={fullscreen=true}})",
-              },
-              { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-              { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-              { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-              { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
-              { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-              { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-            },
-            header = [[ N E O V I M]],
-          },
-        },
+
+      {
+        "<leader>gi",
+        function()
+          Snacks.picker.gh_issue()
+        end,
+        desc = "GitHub Issues (open)",
+      },
+      {
+        "<leader>gp",
+        function()
+          Snacks.picker.gh_pr()
+        end,
+        desc = "GitHub Pull Requests (open)",
       },
     },
+  },
 }
 
 -- local logo = [[

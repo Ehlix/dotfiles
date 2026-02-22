@@ -14,8 +14,8 @@ map("n", "<C-A-l>", "<C-w>l", { desc = "Go to right window" })
 -- map("n", "<C-S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Faster viewport scrolling
-map("", "J", "v:count == 0 ? '3gj' : '3j'", { expr = true, silent = true })
-map("", "K", "v:count == 0 ? '3gk' : '3k'", { expr = true, silent = true })
+map("", "J", "v:count == 0 ? '5gj' : '5j'", { expr = true, silent = true })
+map("", "K", "v:count == 0 ? '5gk' : '5k'", { expr = true, silent = true })
 
 map("", "H", "^")
 map("", "L", "$")
@@ -151,3 +151,16 @@ map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- Delete without yanking (black hole)
+map("n", "x", '"_x')
+map("n", "X", '"_X')
+map("n", "d", '"_d')
+map("n", "dd", '"_dd')
+map("n", "D", '"_D')
+map("n", "c", '"_c')
+map("n", "C", '"_C')
+map("v", "d", '"_d')
+map("v", "D", '"_D')
+map("v", "p", '"_dP') -- paste without overwriting register
+map("v", "c", '"_c')

@@ -24,8 +24,7 @@ map("n", "<leader>wd", ":bd<cr>")
 -- delete buffer and file
 map("n", "<leader>wD", ":!rm %<cr>:bd!<cr>")
 
--- Copy current file path to registers "* and "+
-map("n", "<leader>cp", ":let @*=@%<cr>:let @+=@%<cr>")
+map("n", "<leader>cp", ":let @*=@%<cr>:let @+=@%<cr>", { desc = "Copy current file path" })
 
 -- Yank from the cursor to the end of the line, to be consistent with C and D.
 map("n", "Y", "y$")

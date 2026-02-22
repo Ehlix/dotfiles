@@ -3,98 +3,111 @@ return {
   {
     "mizlan/iswap.nvim",
     keys = {
-      { "gw",         ":ISwapWithRight<cr>", desc = "Swap two arguments" },
-      { "<leader>is", ":ISwap<cr>",          desc = "Swap many arguments" },
+      { "gw", ":ISwapWithRight<cr>", desc = "Swap two arguments" },
+      { "<leader>is", ":ISwap<cr>", desc = "Swap many arguments" },
     },
     opts = {
       keys = "arstdhneio",
     },
   },
 
-  -- auto completion
-{
+  -- autocompletion https://www.lazyvim.org/extras/coding/blink
+  {
     "saghen/blink.cmp",
-    opts = function(_, opts)
-      opts.sources.default = { "copilot", "lsp", "buffer", "path" }
-      opts.keymap = {
+    dependencies = {
+      {
+        -- autocomplete issues and PRs from GitHub
+        "Kaiser-Yang/blink-cmp-git",
+      },
+    },
+    opts = {
+      sources = {
+        default = { "git", "lsp", "buffer", "path" },
+        providers = {
+          git = {
+            module = "blink-cmp-git",
+            name = "Git",
+            opts = {
+              commit = {
+                -- removed `:` to prevent false positives
+                triggers = {},
+              },
+            },
+          },
+        },
+      },
+      keymap = {
         preset = nil,
         ["<C-h>"] = { "select_and_accept" },
         ["<C-space>"] = { "show", "accept" },
         ["<C-c>"] = { "hide" },
-        ["<C-j>"] = { "select_next" },
-        ["<C-k>"] = { "select_prev" },
-      }
-      opts.completion.accept.auto_brackets.enabled = false
-      opts.completion.documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 50,
-        update_delay_ms = 50,
-      }
-      -- Displays a preview of the selected item on the current line
-      opts.completion.ghost_text = {
-        enabled = true,
-      }
-    end,
+        ["<up>"] = { "select_prev" },
+        ["<down>"] = { "select_next" },
+      },
+      completion = {
+        accept = {
+          auto_brackets = {
+            enabled = false,
+          },
+        },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 50,
+          update_delay_ms = 50,
+        },
+        ghost_text = {
+          enabled = true,
+        },
+      },
+    },
   },
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   event = "InsertEnter",
-  --   opts = function(_, opts)
-  --     local cmp = require("cmp")
-  --     opts.mapping = cmp.mapping.preset.insert({
-  --       ["<C-c>"] = cmp.mapping.abort(),
-  --       ["<CR>"] = LazyVim.cmp.confirm(),
-  --       ["<C-j>"] = cmp.mapping.select_next_item(),
-  --       ["<C-k>"] = cmp.mapping.select_prev_item(),
-  --       --   --   --   ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-  --       --   --   --   ["<C-e>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-  --       ["<C-Space>"] = cmp.mapping.complete(),
-  --     })
-  --   end,
-  -- },
 
+  -- brought by blink.cmp
+  { "rafamadriz/friendly-snippets", enabled = false },
 
-  -- 30ms of load time for not much use
-  { "echasnovski/mini.pairs",        enabled = false },
-  { "rafa madriz/friendly-snippets", enabled = false },
-  { "garymjr/nvim-snippets",         enabled = false },
+  { "nvim-mini/mini.pairs", enabled = false },
 
   -- surround
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       mappings = {
-        add = "<space>sa",            -- Add surrounding in Normal and Visual modes
-        delete = "<space>sd",         -- Delete surrounding
-        find = "<space>sf",           -- Find surrounding (to the right)
-        find_left = "<space>sF",      -- Find surrounding (to the left)
-        highlight = "<space>sh",      -- Highlight surrounding
-        replace = "<space>sr",        -- Replace surrounding
+        add = "<space>sa", -- Add surrounding in Normal and Visual modes
+        delete = "<space>sd", -- Delete surrounding
+        find = "<space>sf", -- Find surrounding (to the right)
+        find_left = "<space>sF", -- Find surrounding (to the left)
+        highlight = "<space>sh", -- Highlight surrounding
+        replace = "<space>sr", -- Replace surrounding
         update_n_lines = "<space>sn", -- Update `n_lines`
       },
     },
   },
 
-  -- syntax parser
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        nix = { "nixfmt" },
+        scss = { "oxfmt" },
+        typescript = { "oxfmt" },
+        javascript = { "oxfmt" },
+        markdown = { "oxfmt" },
+        ["markdown.mdx"] = { "oxfmt" },
+      },
+    },
+  },
+
   {
     "nvim-treesitter/nvim-treesitter",
-    ---@type TSConfig
-    ---@diagnostic disable-next-line: missing-fields
     opts = {
-      highlight = {
-        disable = function(_, bufnr) -- Disable in large buffers
-          return vim.api.nvim_buf_line_count(bufnr) > 10000
-        end,
-      },
-      -- stylua: ignore
       ensure_installed = {
+        "bash",
         "scala",
         "haskell",
         "rust",
         "scss",
         "dart",
         "hocon",
-        "bash",
         "help",
         "html",
         "javascript",
@@ -113,10 +126,6 @@ return {
         "yaml",
         "c"
       },
-      ignore_install = { "help" },
     },
   },
-
-  -- Show context of the current function
-  { "nvim-treesitter/nvim-treesitter-context", enabled = false },
 }

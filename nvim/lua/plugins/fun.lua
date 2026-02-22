@@ -32,8 +32,16 @@ return {
       maxkeys = 7,
       position = "top-right",
       show_count = true,
-      -- more opts
     },
   },
-  { "nvzone/timerly", cmd = "TimerlyToggle", dependencies = { "nvzone/volt" } },
+  -- { "nvzone/timerly", cmd = "TimerlyToggle", dependencies = { "nvzone/volt" } },
+  -- {
+  --   "jackplus-xyz/player-one.nvim",
+  --   ---@type PlayerOne.Config
+  --   opts = {
+  --     -- your configuration comes here
+  --     -- or leave it empty to use the default settings
+  --     -- refer to the configuration section below
+  --   },
+  -- },
 }
