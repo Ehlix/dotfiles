@@ -78,3 +78,6 @@ map("n", "<c-h>", "za", { desc = "Toggle Fold" })
 --
 map("n", "<C-J>", "<down>", { desc = "Down" })
 map("n", "<C-K>", "<up>", { desc = "Up" })
+
+map({ "n", "i", "v" }, "<C-j>", "<C-n>", { desc = "Next line / Down" })
+map({ "n", "i", "v" }, "<C-k>", "<C-p>", { desc = "Prev line / Up" })
